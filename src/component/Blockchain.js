@@ -13,7 +13,7 @@ class Blockchain {
     return this.chain[this.chain.length - 1];
   }
   getwholeChain() {
-      console.log(this.chain)
+    // console.log(this.chain)
     return this.chain;
   }
 

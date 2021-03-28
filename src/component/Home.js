@@ -1,11 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import { v4 as uuidv4 } from "uuid";
 import UserBlock from "./UserBlock";
-import  Blockchain  from "./Blockchain";
-import Block from "./Block"
+import Blockchain from "./Blockchain";
+import Block from "./Block";
 let onscene = new Blockchain();
 // console.log("Mining Block 1")
 // onscene.addBlock(
@@ -13,11 +13,26 @@ let onscene = new Blockchain();
 // );
 
 function Home() {
-  const [chain,SetChain] =useState([])
-  const [user, setUser] = useState([
-    
+  const [chain, SetChain] = useState([]);
+  const [doctors, setDoctor] = useState([
     {
       id: uuidv4(),
+      firstName: "Yahya",
+      lastName: "Ahsan",
+      email: "yoyo@gmail.com",
+      password: "yoyo123",
+      city: "Karachi",
+      country: "Pakistan",
+      timeStamp: "28/3/2020",
+      hospital: "SIUT",
+      department: "Heart surgeon",
+      patients: [],
+    },
+  ]);
+  const [user, setUser] = useState([
+    {
+      id: uuidv4(),
+      doctor: "12345",
       firstName: "Salman",
       lastName: "Hanif",
       email: "salmanhanif133@gmail.com",
@@ -34,9 +49,9 @@ function Home() {
     },
     {
       id: uuidv4(),
-      firstName: "Salman",
-      lastName: "Hanif",
-      email: "salmanhanif133@gmail.com",
+      firstName: "Rasheeda",
+      lastName: "abbas",
+      email: "rashi@gmail.com",
       password: "salman33",
       city: "Karachi",
       country: "Pakistan",
@@ -50,9 +65,9 @@ function Home() {
     },
     {
       id: uuidv4(),
-      firstName: "Salman",
-      lastName: "Hanif",
-      email: "salmanhanif133@gmail.com",
+      firstName: "Emad",
+      lastName: "hanif",
+      email: "Emad@gmail.com",
       password: "salman33",
       city: "Karachi",
       country: "Pakistan",
@@ -65,19 +80,23 @@ function Home() {
       },
     },
   ]);
-  useEffect(()=>{
-    
-    user.map((user)=>{
-
-      onscene.addBlock(new Block(user.id, user.timeStamp, user.vitalSigns,user.firstName,user.lastName))
+  useEffect(() => {
+    user.map((user) => {
+      onscene.addBlock(
+        new Block(
+          user.id,
+          user.timeStamp,
+          user.vitalSigns,
+          user.firstName,
+          user.lastName
+        )
+      );
       // );
-    } )
-    SetChain(onscene.getwholeChain())
+    });
+    SetChain(onscene.getwholeChain());
     // getBlock()
     // console.log(chain)
-  },[])
-
-  
+  }, []);
 
   return (
     <>
@@ -86,11 +105,13 @@ function Home() {
         <div className="grid grid-cols-1 gap-1">
           {chain.map((user) => {
             return (
-              user.lastName && <div className="px-16 flex justify-start" key={user.id}>
-                {/* <Link to={`/ads/${ad._id}`}> */}
-                <UserBlock user={user} />
-                {/* </Link> */}
-              </div>
+              user.lastName && (
+                <div className="px-16 flex justify-start" key={user.id}>
+                  {/* <Link to={`/ads/${ad._id}`}> */}
+                  <UserBlock user={user} />
+                  {/* </Link> */}
+                </div>
+              )
             );
           })}
         </div>
