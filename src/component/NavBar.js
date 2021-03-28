@@ -17,7 +17,7 @@ function NavBar() {
         <Link to="/login">
           <Button variant="light">Login</Button>{" "}
         </Link>
-        <Link to="/signup">
+        <Link to="/selection">
           <Button variant="dark">Signup</Button>{" "}
         </Link>
       </Navbar>
