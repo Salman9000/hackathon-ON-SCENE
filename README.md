@@ -20,7 +20,7 @@ In the project directory, you can run:
 
 Install all the modules
 
-### `yarn install'
+### `yarn install`
 
 Install all the yarn modules
 
