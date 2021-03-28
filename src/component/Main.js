@@ -1,7 +1,9 @@
 import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
-import SignUp from "./SignUp";
+import Selection from "./Selection";
+import SignUpDoctor from "./SignupDoctor";
+import SignupUser from "./SignupUser";
 
 const Main = ({ userData, loading }) => {
   return (
@@ -9,8 +11,10 @@ const Main = ({ userData, loading }) => {
       <Switch>
         {/* <Route exact path="/admin" component={AdminLogin /> */}
         <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signup/Doctor" component={SignUpDoctor} />
+        <Route exact path="/signup/User" component={SignupUser} />
         <Route exact path="/" component={Home} />
+        <Route exact path="/selection" component={Selection} />
         {/* <Route exact path="/admin/users" component={ShowUsers} />
         <Route
           exact
