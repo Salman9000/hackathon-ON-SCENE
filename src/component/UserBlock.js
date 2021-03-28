@@ -1,6 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 // import NavBarForm from "./NavBarForm";
+import  Blockchain  from "./Blockchain";
+import Block from "./Block"
+let onscene = new Blockchain();
+// console.log("Mining Block 1")
+// onscene.addBlock(
+//   new Block(1, "28/03/2021", { bloodpressure: "120/80", heartrate: "80" })
+// );
 const UserBlock = ({ user, userId }) => {
   return (
     <div className="w-full rounded overflow-hidden shadow-lg bg-white mb-8">
@@ -8,7 +15,7 @@ const UserBlock = ({ user, userId }) => {
         <div className="font-bold text-xl">
           {user.firstName} {user.lastName}
         </div>
-        <div className="font-thin mb-2 text-xs">{user.id}</div>
+        <div className="font-thin mb-2 text-xs">{user.hash}</div>
         <div>
           <p className="inline-block font-bold text-base pr-4">
             Oxygen Level:{" "}
@@ -37,7 +44,7 @@ const UserBlock = ({ user, userId }) => {
         <div>
           <p className="inline-block font-bold text-base pr-4">Temperature: </p>
           <span className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-            {user.vitalSigns.temperature} Celcius
+            {user.vitalSigns.temperature} Fahrenheit
           </span>
         </div>
       </div>
